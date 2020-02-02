@@ -1,0 +1,18 @@
+# Read about `build.yaml` at https://pub.dev/packages/build_config
+targets:
+  $default:
+    sources:
+      include:
+        - assets/**
+    builders:
+      assets_builder:
+        generate_for:
+          - example
+        enabled: true
+
+builders:
+  assets_builder:
+    import: "lib/builder.dart"
+    builder_factories: ["assetsBuilder"]
+    build_extensions: {"": [".asset.dart"]}
+    build_to: source
